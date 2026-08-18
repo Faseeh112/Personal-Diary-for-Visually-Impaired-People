@@ -11,8 +11,6 @@ env/
 .env
 .env.*
 
-# Local database / instance data
-backend/instance/
-
-# Uploaded/generated files
-backend/uploads/
+# Upload folder: keep folder, ignore its contents
+backend/uploads/*
+!backend/uploads/.gitkeep
