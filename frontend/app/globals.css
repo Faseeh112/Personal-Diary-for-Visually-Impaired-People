@@ -1,0 +1,244 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  color: #213547;
+  background-color: #f0f4ff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #f0f4ff;
+  padding-top: env(safe-area-inset-top);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 1.8em;
+  line-height: 1.2;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* ============================================================
+   GLOBAL BUTTON STANDARDIZATION (Smart Diary brand)
+   - Mobile-first: no hover color shifts, only tap feedback.
+   - Add buttons     -> yellow #facc15 / black #000
+   - Back buttons    -> blue   #2563eb / white #fff
+   - Delete buttons  -> red    #dc2626 / white #fff
+   These rules override per-component styles by listing every
+   known back/add/delete class in the project.
+   ============================================================ */
+
+/* ── ADD buttons ── */
+.btn-add,
+.addnote-add-btn, .addnote-empty-btn,
+.asset-add-btn, .asset-empty-btn,
+.catm-add-btn,
+.person-add-btn, .person-empty-btn,
+.reminder-add-btn, .reminder-empty-btn,
+.tk-header-add, .tk-empty-btn {
+  background: #facc15 !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.btn-add svg,
+.btn-add .reminder-add-icon,
+.addnote-add-btn svg, .addnote-empty-btn svg,
+.asset-add-btn svg, .asset-empty-btn svg,
+.catm-add-btn svg,
+.person-add-btn svg, .person-empty-btn svg,
+.reminder-add-btn svg, .reminder-add-icon,
+.reminder-empty-btn svg,
+.tk-header-add svg, .tk-empty-btn svg {
+  color: #000000 !important;
+  stroke: currentColor;
+}
+
+/* ── BACK buttons ── */
+.btn-back,
+.at-back-btn, .aa-back-btn,
+.addnote-back-btn,
+.aiquery-back-btn,
+.asset-back-btn,
+.catm-back-btn,
+.il-back-btn,
+.person-back-btn,
+.reminder-back-btn,
+.tk-back-btn,
+.back-btn {
+  background: #2563eb !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.btn-back svg,
+.at-back-btn svg, .aa-back-btn svg,
+.addnote-back-btn svg,
+.aiquery-back-btn svg, .aiquery-back-icon,
+.asset-back-btn svg,
+.catm-back-btn svg,
+.il-back-btn svg,
+.person-back-btn svg,
+.reminder-back-btn svg, .reminder-back-icon,
+.tk-back-btn svg,
+.back-btn svg, .back-icon {
+  color: #ffffff !important;
+  stroke: currentColor;
+}
+
+/* ── DELETE / REMOVE buttons ── */
+.btn-delete,
+.addnote-delete-btn,
+.aiquery-clear-btn,
+.asset-delete-btn,
+.catm-delete-btn,
+.il-item-delete,
+.person-delete-btn,
+.reminder-delete-btn,
+.tk-icon-btn.tk-del,
+.at-file-remove, .aa-file-remove {
+  background: #dc2626 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.btn-delete svg,
+.addnote-delete-btn svg,
+.aiquery-clear-btn svg, .aiquery-clear-icon,
+.asset-delete-btn svg,
+.catm-delete-btn svg,
+.il-item-delete svg,
+.person-delete-btn svg,
+.reminder-delete-btn svg,
+.tk-icon-btn.tk-del svg,
+.at-file-remove svg, .aa-file-remove svg {
+  color: #ffffff !important;
+  stroke: currentColor;
+}
+
+/* ── REMOVE ALL HOVER EFFECTS GLOBALLY (mobile-first) ─────────
+   Buttons, links, cards, nav items, floating items: hovering
+   must not change colors, shadows, or transforms. Only :active
+   (tap) feedback is allowed where designers added it.
+   ============================================================ */
+a:hover,
+button:hover,
+button:hover svg,
+[class*="-btn"]:hover,
+/* [class*="-card"]:hover,
+[class*="-card"]:hover [class*="-icon"], */
+.menu-card:hover,
+.menu-card:hover .menu-icon-wrapper,
+[class*="-nav"]:hover,
+[class*="nav-btn"]:hover,
+[class*="-tab"]:hover,
+[class*="-pill"]:hover,
+[class*="footer-btn"]:hover,
+[class*="footer-btn"]:hover [class*="-icon"],
+[class*="footer-btn"]:hover span,
+[class*="-link"]:hover,
+[class*="-fab"]:hover,
+[class*="floating"]:hover {
+  background: inherit !important;
+  background-color: inherit !important;
+  background-image: none !important;
+  color: inherit !important;
+  border-color: inherit !important;
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-decoration: inherit !important;
+}
+
+/* Re-apply our standardized colors even on hover (mobile-first =
+   color must NOT change on hover, including for the brand
+   buttons themselves). */
+.btn-add:hover,
+.addnote-add-btn:hover, .addnote-empty-btn:hover,
+.asset-add-btn:hover, .asset-empty-btn:hover,
+.catm-add-btn:hover,
+.person-add-btn:hover, .person-empty-btn:hover,
+.reminder-add-btn:hover, .reminder-empty-btn:hover,
+.tk-header-add:hover, .tk-empty-btn:hover {
+  background: #facc15 !important;
+  color: #000000 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+.btn-back:hover,
+.at-back-btn:hover, .aa-back-btn:hover,
+.addnote-back-btn:hover,
+.aiquery-back-btn:hover,
+.asset-back-btn:hover,
+.catm-back-btn:hover,
+.il-back-btn:hover,
+.person-back-btn:hover,
+.reminder-back-btn:hover,
+.tk-back-btn:hover,
+.back-btn:hover {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+.btn-delete:hover,
+.addnote-delete-btn:hover,
+.aiquery-clear-btn:hover,
+.asset-delete-btn:hover,
+.catm-delete-btn:hover,
+.il-item-delete:hover,
+.person-delete-btn:hover,
+.reminder-delete-btn:hover,
+.tk-icon-btn.tk-del:hover,
+.at-file-remove:hover, .aa-file-remove:hover {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  transform: none !important;
+  box-shadow: none !important;
+}

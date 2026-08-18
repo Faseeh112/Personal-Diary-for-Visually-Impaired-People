@@ -1,0 +1,545 @@
+/* ============================================
+   AI QUERY SCREEN - COMPLETE CSS
+   ============================================ */
+
+/* ===== CONTAINER ===== */
+.aiquery-container {
+  width: 100%; /* Container ki width parent ke barabar full hogi */
+  max-width: 100%; /* Container parent se zyada wide nahi hoga */
+  min-height: 100vh; /* Container kam az kam full screen height lega */
+  margin: 0 auto; /* Container ko horizontally center karta hai */
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%); /* Light blue gradient background lagata hai */
+  display: flex; /* Flexbox layout enable karta hai */
+  flex-direction: column; /* Child elements ko vertical direction mein arrange karta hai */
+  position: relative; /* Iske andar absolute positioned elements ko control karne ke liye */
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.aiquery-header {
+  display: flex; /* Flexbox layout enable karta hai */
+  align-items: center; /* Child elements ko vertically center karta hai */
+  justify-content: space-between; /* Elements ke beech mein space distribute karta hai */
+  padding: 16px 20px; /* Top-bottom 16px aur left-right 20px padding deta hai */
+  background: #ffffff; /* White background set karta hai */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); /* Light shadow effect deta hai header ko */
+  position: sticky; /* Header ko scroll karte waqt top par fix rakhta hai */
+  top: 0; /* Sticky positioning ke liye header ko viewport ke top par rakhne ke liye */
+  z-index: 50; /* Header ko higher stacking order deta hai taake dusre elements ke upar dikhai de */
+}
+
+.aiquery-back-btn {
+  width: 40px; /* Button ki width 40px set karta hai */
+  height: 40px; /* Button ki height 40px set karta hai */
+  border: 1px solid #dbeafe; /* Light border color #dbeafe set karta hai */
+  border-radius: 10px; /* Button ke corners ko 10px radius ke saath rounded karta hai */
+  background: #eef4ff; /* Button ka background color light blue set karta hai */
+  color: #2563eb; /* Text color blue set karta hai */
+  cursor: pointer; /* Cursor ko pointer banata hai jab mouse button par ho */
+  display: flex; /* Flexbox layout enable karta hai */
+  align-items: center; /* Vertically center karta hai button ke content ko */
+  justify-content: center; /* Horizontally content ko center karta hai */
+  transition: all 0.2s ease; /* Hover ya interaction pe smooth transition effect apply karta hai */
+}
+
+.aiquery-back-btn:hover {
+  background: #dbeafe; /* Button ke hover pe background ko light blue (#dbeafe) mein badalta hai */
+  color: #2563eb; /* Hover pe text ka color blue (#2563eb) ho jata hai */
+}
+
+.aiquery-back-icon {
+  font-size: 18px; /* Back button icon ki size ko 18px set karta hai */
+}
+
+.aiquery-header-center {
+  display: flex; /* Flexbox layout enable karta hai */
+  align-items: center; /* Center alignment vertically */
+  gap: 10px; /* Elements ke beech 10px ka gap rakhta hai */
+}
+
+.aiquery-header-icon {
+  font-size: 22px; /* Header icon ka font size 22px set karta hai */
+  color: #4a6cf7; /* Icon ka color blue (#4a6cf7) set karta hai */
+}
+
+.aiquery-title {
+  font-size: 20px; /* Title ka font size 20px set karta hai */
+  font-weight: 700; /* Title ko bold (700 weight) karta hai */
+  color: #1a1a2e; /* Title ka color dark blue (#1a1a2e) set karta hai */
+  margin: 0; /* Title ke aas-paas koi margin nahi rakhta */
+}
+/* Clear Button Style */
+.aiquery-clear-btn {
+  width: 40px; /* Width of the clear button */
+  height: 40px; /* Height of the clear button */
+  border: none; /* No border for the button */
+  border-radius: 10px; /* Rounded corners with 10px radius */
+  background: #fef2f2; /* Light pink background */
+  color: #ef4444; /* Red color for the icon or text */
+  cursor: pointer; /* Pointer cursor on hover to indicate it’s clickable */
+  display: flex; /* Flexbox layout to center the content */
+  align-items: center; /* Vertically centers the content */
+  justify-content: center; /* Horizontally centers the content */
+  transition: all 0.2s ease; /* Smooth transition effect for all changes */
+}
+
+/* Clear Button Hover Effect */
+.aiquery-clear-btn:hover {
+  background: #ef4444; /* Red background on hover */
+  color: #ffffff; /* White text/icon color on hover */
+}
+
+/* Clear Button Icon Style */
+.aiquery-clear-icon {
+  font-size: 16px; /* Font size for the icon inside the button */
+}
+
+/* ============================================
+   CHAT AREA
+   ============================================ */
+
+/* Chat Container Area */
+.aiquery-chat-area {
+  flex: 1; /* Take up remaining available space */
+  padding: 20px 20px 100px 20px; /* Padding around the chat area */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  display: flex; /* Flexbox layout to arrange chat bubbles */
+  flex-direction: column; /* Align the chat bubbles vertically */
+  gap: 16px; /* Space between chat bubbles */
+}
+
+/* ============================================
+   CHAT BUBBLES
+   ============================================ */
+
+/* Chat Bubble Style */
+.aiquery-chat-bubble {
+  display: flex; /* Flex layout to align content horizontally */
+  gap: 10px; /* Space between the avatar and content inside the bubble */
+  max-width: 85%; /* Maximum width for the chat bubble */
+  animation: aiquery-fadeIn 0.3s ease; /* Fade-in animation for the chat bubble */
+}
+
+/* User Chat Bubble Style */
+.aiquery-user-bubble {
+  align-self: flex-end; /* Align the user’s bubble to the right */
+  flex-direction: row-reverse; /* Reverse the order of elements (avatar and content) for user */
+}
+
+/* AI Chat Bubble Style */
+.aiquery-ai-bubble {
+  align-self: flex-start; /* Align the AI’s bubble to the left */
+}
+
+/* --- Avatar --- */
+
+/* Avatar Style for Chat Bubbles */
+.aiquery-bubble-avatar {
+  width: 36px; /* Avatar width */
+  height: 36px; /* Avatar height */
+  border-radius: 50%; /* Make the avatar circular */
+  display: flex; /* Flexbox layout to center the avatar content */
+  align-items: center; /* Vertically center the content inside the avatar */
+  justify-content: center; /* Horizontally center the content inside the avatar */
+  flex-shrink: 0; /* Prevent the avatar from shrinking */
+}
+
+/* AI Avatar Specific Styling */
+.aiquery-ai-bubble .aiquery-bubble-avatar {
+  background: linear-gradient(135deg, #4a6cf7, #6366f1); /* Blue gradient background for AI avatar */
+  color: #ffffff; /* White color for the avatar content (like icon or initial) */
+}
+
+/* --- User Chat Bubble Avatar --- */
+.aiquery-user-bubble .aiquery-bubble-avatar {
+  background: linear-gradient(135deg, #f97316, #fb923c); /* Gradient from orange to peach for the user avatar */
+  color: #ffffff; /* White color for the avatar content (like icon or initial) */
+}
+
+/* --- Avatar Icon --- */
+.aiquery-avatar-icon {
+  font-size: 16px; /* Font size for the avatar icon */
+}
+
+/* --- Bubble Content --- */
+
+/* Chat Bubble Content Styling */
+.aiquery-bubble-content {
+  padding: 14px 18px; /* Padding around the content inside the chat bubble */
+  border-radius: 16px; /* Rounded corners for the chat bubble */
+  max-width: 100%; /* Ensures the bubble does not exceed container width */
+}
+
+/* AI Chat Content Styling */
+.aiquery-ai-content {
+  background: #ffffff; /* White background for AI chat content */
+  border: 1px solid #e2e8f0; /* Light border around the bubble */
+  border-top-left-radius: 4px; /* Rounded top-left corner */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Subtle shadow for a slight 3D effect */
+}
+
+/* User Chat Content Styling */
+.aiquery-user-content {
+  background: linear-gradient(135deg, #4a6cf7 0%, #6366f1 100%); /* Gradient background for user chat content (blue) */
+  border-top-right-radius: 4px; /* Rounded top-right corner */
+  box-shadow: 0 4px 12px rgba(74, 108, 247, 0.25); /* Shadow effect for depth */
+}
+
+/* --- Bubble Text --- */
+
+/* Text Styling Inside Chat Bubbles */
+.aiquery-bubble-text {
+  margin: 0; /* No margin for the text */
+  font-size: 14px; /* Font size for the text */
+  line-height: 1.6; /* Line height to ensure readability */
+}
+
+/* AI Bubble Text Color */
+.aiquery-ai-content .aiquery-bubble-text {
+  color: #334155; /* Dark gray color for AI bubble text */
+}
+
+/* User Bubble Text Color */
+.aiquery-user-content .aiquery-bubble-text {
+  color: #ffffff; /* White text color for user bubble */
+}
+
+/* ============================================
+   TYPING INDICATOR
+   ============================================ */
+
+/* Typing Indicator Container */
+.aiquery-typing-indicator {
+  display: flex; /* Flex layout to arrange the typing dots horizontally */
+  gap: 6px; /* Space between dots */
+  padding: 4px 0; /* Padding around the indicator */
+}
+
+/* Typing Dot Styling */
+.aiquery-typing-dot {
+  width: 8px; /* Dot width */
+  height: 8px; /* Dot height */
+  background: #94a3b8; /* Light gray color for the dot */
+  border-radius: 50%; /* Circle shape */
+  animation: aiquery-bounce 1.4s ease-in-out infinite; /* Bouncing animation for the dot */
+}
+
+/* Animation Delay for Each Dot (to create staggered effect) */
+.aiquery-typing-dot:nth-child(2) {
+  animation-delay: 0.2s; /* Delay for the second dot */
+}
+
+.aiquery-typing-dot:nth-child(3) {
+  animation-delay: 0.4s; /* Delay for the third dot */
+}
+
+/* ============================================
+   INPUT AREA
+   ============================================ */
+/* --- Input Area --- */
+.aiquery-input-area {
+  position: fixed; /* Fixes the input area at the bottom of the screen */
+  bottom: 0; /* Positions the input area at the bottom */
+  left: 50%; /* Centers the input horizontally */
+  transform: translateX(-50%); /* Corrects the centering by shifting 50% of the width */
+  width: 100%; /* Takes up the full width of the screen */
+  max-width: 100%; /* No maximum width limit */
+  padding: 12px 16px; /* Padding around the input area */
+  padding-bottom: max(12px, env(safe-area-inset-bottom)); /* Adds extra padding for devices with safe areas (like iPhone X) */
+  background: #ffffff; /* White background */
+  border-top: 1px solid #f1f5f9; /* Light border at the top */
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04); /* Subtle shadow at the top for depth */
+  z-index: 50; /* Ensures the input area is on top */
+}
+
+/* --- Form Style --- */
+.aiquery-form {
+  display: flex; /* Flexbox layout to arrange form elements */
+  align-items: center; /* Aligns items vertically centered */
+  gap: 10px; /* Space between elements */
+  max-width: 70%; /* Limits form width to 70% */
+  margin: 0 auto; /* Centers the form horizontally */
+}
+
+/* --- Input Wrapper --- */
+.aiquery-input-wrapper {
+  flex: 1; /* Takes up the available space */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Centers the content vertically */
+  gap: 10px; /* Space between input and icon */
+  background: #f8fafc; /* Light background */
+  border: 2px solid #e2e8f0; /* Light border */
+  border-radius: 14px; /* Rounded corners */
+  padding: 0 16px; /* Padding around the input */
+  transition: border-color 0.2s ease; /* Smooth transition for border color */
+}
+
+/* --- Focused Input Wrapper --- */
+.aiquery-input-wrapper:focus-within {
+  border-color: #4a6cf7; /* Blue border when the input area is focused */
+  background: #ffffff; /* White background when focused */
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1); /* Subtle shadow on focus */
+}
+
+/* --- Input Icon --- */
+.aiquery-input-icon {
+  font-size: 18px; /* Icon size */
+  color: #94a3b8; /* Light gray color for the icon */
+  flex-shrink: 0; /* Prevents the icon from shrinking */
+}
+
+/* --- Text Input --- */
+.aiquery-input {
+  flex: 1; /* Takes up available space */
+  padding: 14px 0; /* Vertical padding inside the input field */
+  border: none; /* Removes the default border */
+  outline: none; /* Removes the outline when focused */
+  font-size: 15px; /* Font size for the input text */
+  color: #1a1a2e; /* Dark color for the text */
+  background: transparent; /* Transparent background */
+}
+
+/* --- Input Placeholder --- */
+.aiquery-input::placeholder {
+  color: #94a3b8; /* Light gray color for the placeholder text */
+}
+
+/* --- Mic Button --- */
+.aiquery-mic-btn {
+  width: 46px; /* Mic button size */
+  height: 46px; /* Mic button size */
+  border: none; /* No border for the button */
+  border-radius: 14px; /* Rounded corners */
+  background: #f0f4ff; /* Light blue background */
+  color: #4a6cf7; /* Blue color for the mic icon */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Flexbox layout to center the content */
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally */
+  transition: all 0.2s ease; /* Smooth transition for all properties */
+  flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+/* --- Mic Button Hover --- */
+.aiquery-mic-btn:hover {
+  background: #4a6cf7; /* Blue background on hover */
+  color: #ffffff; /* White icon color on hover */
+  box-shadow: 0 4px 12px rgba(74, 108, 247, 0.3); /* Shadow on hover */
+}
+
+/* --- Mic Icon --- */
+.aiquery-mic-icon {
+  font-size: 18px; /* Icon size */
+}
+
+/* --- Send Button --- */
+.aiquery-send-btn {
+  width: 46px; /* Send button size */
+  height: 46px; /* Send button size */
+  border: none; /* No border for the button */
+  border-radius: 14px; /* Rounded corners */
+  background: linear-gradient(135deg, #4a6cf7 0%, #6366f1 100%); /* Gradient background */
+  color: #ffffff; /* White color for the icon */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Flexbox layout to center the content */
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally */
+  transition: all 0.2s ease; /* Smooth transition for all properties */
+  box-shadow: 0 4px 12px rgba(74, 108, 247, 0.3); /* Shadow effect */
+  flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+/* --- Send Button Hover --- */
+.aiquery-send-btn:hover {
+  transform: scale(1.05); /* Slight scale up on hover */
+  box-shadow: 0 6px 16px rgba(74, 108, 247, 0.4); /* Enhanced shadow on hover */
+}
+
+/* --- Disabled Send Button --- */
+.aiquery-send-btn:disabled {
+  background: #e2e8f0; /* Light gray background when the button is disabled */
+  color: #94a3b8; /* Light gray color for the text/icon */
+  box-shadow: none; /* No shadow when the button is disabled */
+  cursor: not-allowed; /* Indicates the button cannot be clicked */
+  transform: none; /* No transformation (e.g., scale) when disabled */
+}
+
+/* --- Send Button Icon --- */
+.aiquery-send-icon {
+  font-size: 18px; /* Size of the icon inside the send button */
+}
+
+/* --- Footer Button Style --- */
+.footer-btn {
+  flex: 1; /* Makes the footer button take up available space */
+  max-width: 120px; /* Limits the button's width */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Arrange content vertically (icon and text) */
+  align-items: center; /* Center the content horizontally */
+  gap: 4px; /* Small gap between the icon and text */
+  padding: 8px 0; /* Vertical padding */
+  border: none; /* No border for the footer button */
+  background: transparent; /* Transparent background */
+  cursor: pointer; /* Pointer cursor when hovering over the button */
+  transition: all 0.2s ease; /* Smooth transition for all properties */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* --- Footer Button Text Style --- */
+.footer-btn span {
+  font-size: 11px; /* Smaller text size */
+  font-weight: 600; /* Semi-bold text */
+  color: #94a3b8; /* Light gray color for text */
+  transition: color 0.2s ease; /* Smooth color transition on hover */
+}
+
+/* --- Footer Icon Style --- */
+.footer-icon {
+  font-size: 20px; /* Icon size */
+  color: #94a3b8; /* Light gray color for the icon */
+  transition: color 0.2s ease; /* Smooth color transition on hover */
+}
+
+/* --- Hover Effect for Footer Button --- */
+.footer-btn:hover .footer-icon,
+.footer-btn:hover span {
+  color: #4a6cf7; /* Blue color on hover */
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* --- Fade-In Animation --- */
+@keyframes aiquery-fadeIn {
+  from {
+    opacity: 0; /* Start with no opacity */
+    transform: translateY(10px); /* Start from a 10px below position */
+  }
+  to {
+    opacity: 1; /* End with full opacity */
+    transform: translateY(0); /* End at the normal position */
+  }
+}
+
+/* --- Bounce Animation --- */
+@keyframes aiquery-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0); /* Stay at the normal position */
+  }
+  30% {
+    transform: translateY(-8px); /* Bounce upwards by 8px */
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .aiquery-chat-area {
+    padding: 16px 12px 160px 12px; /* Adjust padding for smaller screens */
+  }
+
+  .aiquery-chat-bubble {
+    max-width: 92%; /* Max width for chat bubbles on mobile */
+  }
+
+  .aiquery-bubble-content {
+    padding: 12px 14px; /* Adjust padding for chat bubble content */
+  }
+
+  .aiquery-title {
+    font-size: 18px; /* Smaller font size for title */
+  }
+
+  .aiquery-form {
+    gap: 8px; /* Smaller gap between form elements */
+  }
+
+  .aiquery-mic-btn,
+  .aiquery-send-btn {
+    width: 42px; /* Smaller button size */
+    height: 42px; /* Smaller button size */
+  }
+}
+
+/* ============================================
+   RESPONSIVE - TABLET (481px - 768px)
+   ============================================ */
+@media (min-width: 481px) and (max-width: 768px) {
+  .aiquery-chat-bubble {
+    max-width: 80%; /* Max width for chat bubbles on tablets */
+  }
+}
+
+/* ============================================
+   RESPONSIVE - DESKTOP (769px+)
+   ============================================ */
+/* --- Responsive Design - Desktop (min-width: 431px) --- */
+@media (min-width: 431px) {
+  .aiquery-chat-area {
+    padding: 24px 24px 100px 24px; /* Adds padding around the chat area */
+  }
+
+  .aiquery-chat-bubble {
+    max-width: 75%; /* Limits the width of chat bubbles to 75% of the container */
+  }
+}
+
+/* ===== ADD TO YOUR EXISTING CSS ===== */
+
+/* --- Mic Active State (listening) --- */
+.aiquery-mic-active {
+  background: #ef4444 !important; /* Red background when mic is active */
+  color: #ffffff !important; /* White color for icon/text when active */
+  animation: aiquery-pulse 1.5s ease-in-out infinite; /* Pulsing animation for active mic */
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4); /* Red shadow around mic button */
+}
+
+/* --- Pulse Animation for Mic Active --- */
+@keyframes aiquery-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); /* Start with a small shadow */
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); /* Expand and fade out the shadow */
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); /* End with no shadow */
+  }
+}
+
+/* --- Footer Active State --- */
+.footer-btn-active .footer-icon,
+.footer-btn-active span {
+  color: #4a6cf7 !important; /* Blue color for active footer button icon and text */
+}
+
+/* Footer Button Active Visual Effect */
+.footer-btn-active {
+  position: relative; /* Positions the footer button relative to its parent */
+}
+
+.footer-btn-active::after {
+  content: ''; /* Creates a pseudo-element for the visual effect */
+  position: absolute; /* Positions the pseudo-element absolutely */
+  top: 0; /* Aligns it to the top */
+  left: 50%; /* Centers it horizontally */
+  transform: translateX(-50%); /* Adjusts the element to be centered */
+  width: 20px; /* Width of the line */
+  height: 3px; /* Height of the line */
+  background: #4a6cf7; /* Blue color for the line */
+  border-radius: 0 0 4px 4px; /* Rounded bottom corners for the line */
+}
+
+/* --- Disabled Input State --- */
+.aiquery-input:disabled {
+  opacity: 0.6; /* Reduces opacity when the input is disabled */
+  cursor: not-allowed; /* Changes the cursor to indicate the input is not interactive */
+}
+
+/* --- Message Text with Line Breaks --- */
+.aiquery-bubble-text {
+  white-space: pre-line; /* Maintains line breaks within the text */
+}

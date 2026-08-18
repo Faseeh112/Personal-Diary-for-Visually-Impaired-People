@@ -1,0 +1,162 @@
+/* ========== PERSON MANAGER ========== */
+.person-wrapper {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+  padding-bottom: 30px;
+}
+
+.person-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 20px 16px; background: #fff; border-bottom: 1px solid #f1f5f9;
+}
+.person-back-btn {
+  width: 40px; height: 40px; border-radius: 12px; border: 1px solid #dbeafe;
+  background: #eef4ff; color: #2563eb; display: flex; align-items: center;
+  justify-content: center; cursor: pointer; transition: all 0.2s;
+}
+.person-back-btn:hover { background: #dbeafe; }
+.person-title { font-size: 22px; font-weight: 800; color: #1a1a2e; margin: 0; }
+.person-subtitle { font-size: 13px; color: #94a3b8; margin: 2px 0 0; }
+.person-add-btn {
+  width: 42px; height: 42px; border-radius: 14px; border: 1px solid #dbeafe;
+  background: #eef4ff; color: #2563eb;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.person-add-btn:hover { background: #dbeafe; }
+
+.person-search-wrap {
+  position: relative; padding: 12px 20px;
+}
+.person-search-icon {
+  position: absolute; left: 34px; top: 50%; transform: translateY(-50%); color: #94a3b8;
+}
+.person-search {
+  width: 100%; padding: 12px 14px 12px 40px; border: 1.5px solid #e2e8f0;
+  border-radius: 12px; font-size: 14px; background: #fff; outline: none;
+  box-sizing: border-box;
+}
+.person-search:focus { border-color: #4a6cf7; box-shadow: 0 0 0 3px rgba(74,108,247,0.1); }
+
+.person-toast {
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  background: #10b981; color: #fff; padding: 12px 24px; border-radius: 12px;
+  font-size: 14px; font-weight: 600; z-index: 200; display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 8px 30px rgba(16,185,129,0.35); animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.person-main { padding: 0 20px 20px; }
+
+.person-empty {
+  text-align: center; padding: 60px 20px; color: #94a3b8;
+}
+.person-empty h3 { color: #334155; margin: 16px 0 6px; font-size: 18px; }
+.person-empty p { font-size: 14px; margin: 0 0 20px; }
+.person-empty-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 12px 24px;
+  border-radius: 12px; border: none; background: linear-gradient(135deg, #4a6cf7, #6366f1);
+  color: #fff; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+
+.person-list { display: flex; flex-direction: column; gap: 8px; }
+
+.person-card {
+  display: flex; align-items: center; gap: 14px; padding: 14px 16px;
+  background: #fff; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  transition: transform 0.2s;
+}
+.person-card:hover { transform: translateY(-1px); }
+
+.person-avatar {
+  width: 46px; height: 46px; border-radius: 14px; display: flex;
+  align-items: center; justify-content: center; color: #fff;
+  font-size: 15px; font-weight: 700; flex-shrink: 0;
+}
+
+.person-card-info { flex: 1; min-width: 0; }
+.person-card-name { font-size: 15px; font-weight: 700; color: #1a1a2e; margin: 0 0 2px; }
+.person-card-relation {
+  display: inline-block; font-size: 11px; font-weight: 600; color: #4a6cf7;
+  background: #eef2ff; padding: 2px 8px; border-radius: 6px; margin-right: 6px;
+}
+.person-card-phone {
+  font-size: 12px; color: #94a3b8; display: inline-flex; align-items: center; gap: 3px;
+}
+
+.person-card-actions { display: flex; gap: 6px; }
+.person-edit-btn, .person-delete-btn {
+  width: 32px; height: 32px; border-radius: 8px; border: none;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.person-edit-btn { background: #eef2ff; color: #4a6cf7; }
+.person-edit-btn:hover { background: #4a6cf7; color: #fff; }
+.person-delete-btn { background: #fef2f2; color: #ef4444; }
+.person-delete-btn:hover { background: #ef4444; color: #fff; }
+
+/* Modal */
+.person-modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 150;
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.person-modal {
+  background: #fff; border-radius: 20px; padding: 28px; max-width: 360px; width: 100%; text-align: center;
+}
+.person-modal h3 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin: 0 0 8px; }
+.person-modal p { font-size: 14px; color: #64748b; margin: 0 0 20px; }
+.person-modal-actions { display: flex; gap: 10px; }
+.person-modal-cancel, .person-modal-delete {
+  flex: 1; padding: 12px; border-radius: 12px; border: none; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.person-modal-cancel { background: #f1f5f9; color: #334155; }
+.person-modal-delete { background: #ef4444; color: #fff; }
+
+/* Form Modal */
+.person-form-modal {
+  background: #fff; border-radius: 20px; max-width: 460px; width: 100%; max-height: 90vh; overflow-y: auto;
+}
+.person-form-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px 12px; border-bottom: 1px solid #f1f5f9;
+}
+.person-form-header h2 { font-size: 20px; font-weight: 700; color: #1a1a2e; margin: 0; }
+.person-form-close {
+  width: 36px; height: 36px; border-radius: 10px; border: none;
+  background: #f1f5f9; color: #64748b; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+
+.person-form { padding: 16px 24px 24px; }
+.person-input-group { margin-bottom: 16px; }
+.person-input-group label {
+  display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600;
+  color: #334155; margin-bottom: 6px;
+}
+.person-input-group input, .person-input-group select, .person-input-group textarea {
+  width: 100%; padding: 12px 14px; border: 1.5px solid #e2e8f0; border-radius: 12px;
+  font-size: 14px; color: #1a1a2e; background: #fafbfc; outline: none;
+  font-family: inherit; box-sizing: border-box; transition: all 0.2s;
+}
+.person-input-group input:focus, .person-input-group select:focus, .person-input-group textarea:focus {
+  border-color: #4a6cf7; background: #fff; box-shadow: 0 0 0 3px rgba(74,108,247,0.1);
+}
+.person-input-error { border-color: #ef4444 !important; }
+.person-error { font-size: 12px; color: #ef4444; margin-top: 4px; display: block; }
+
+.person-form-actions { display: flex; gap: 10px; margin-top: 8px; }
+.person-cancel-btn {
+  flex: 1; padding: 14px; border-radius: 12px; border: none; background: #f1f5f9;
+  color: #64748b; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.person-submit-btn {
+  flex: 2; padding: 14px; border-radius: 12px; border: none;
+  background: linear-gradient(135deg, #4a6cf7, #6366f1); color: #fff;
+  font-size: 14px; font-weight: 600; cursor: pointer; display: flex;
+  align-items: center; justify-content: center; gap: 6px;
+  box-shadow: 0 4px 14px rgba(74,108,247,0.3);
+}

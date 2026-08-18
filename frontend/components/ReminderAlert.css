@@ -1,0 +1,260 @@
+/* ============================================
+   REMINDER ALERT — Global Floating Modal
+   Premium glassmorphism design with animations
+   ============================================ */
+
+/* Container — fixed overlay, stacks alerts vertically */
+.ra-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: ra-overlay-in 0.3s ease;
+  padding: 20px;
+}
+
+@keyframes ra-overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal Card ────────────────────────────────────────────── */
+.ra-modal {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff 0%, #f8faff 100%);
+  border-radius: 24px;
+  padding: 32px 28px 24px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow:
+    0 24px 80px rgba(74, 108, 247, 0.18),
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  animation: ra-modal-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: visible;
+}
+
+.ra-modal-missed {
+  border: 2px solid #f59e0b;
+  box-shadow:
+    0 24px 80px rgba(245, 158, 11, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes ra-modal-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ── Pulse ring behind icon ────────────────────────────────── */
+.ra-pulse-ring {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(74, 108, 247, 0.15);
+  animation: ra-pulse 1.5s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes ra-pulse {
+  0%, 100% { transform: translateX(-50%) scale(1);   opacity: 0.6; }
+  50%      { transform: translateX(-50%) scale(1.3); opacity: 0;   }
+}
+
+/* ── Close button ──────────────────────────────────────────── */
+.ra-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s, color 0.2s;
+  z-index: 2;
+}
+
+.ra-close-btn:hover {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+/* ── Icon wrapper ──────────────────────────────────────────── */
+.ra-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  margin: -18px auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a6cf7 0%, #6366f1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(74, 108, 247, 0.35);
+  position: relative;
+  z-index: 1;
+  animation: ra-bell-shake 0.6s ease 0.4s;
+}
+
+.ra-icon-missed {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+}
+
+.ra-icon {
+  font-size: 28px;
+  color: #ffffff;
+}
+
+@keyframes ra-bell-shake {
+  0%   { transform: rotate(0deg);   }
+  15%  { transform: rotate(15deg);  }
+  30%  { transform: rotate(-15deg); }
+  45%  { transform: rotate(10deg);  }
+  60%  { transform: rotate(-10deg); }
+  75%  { transform: rotate(5deg);   }
+  100% { transform: rotate(0deg);   }
+}
+
+/* ── Missed badge ──────────────────────────────────────────── */
+.ra-badge-missed {
+  display: inline-block;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* ── Title ─────────────────────────────────────────────────── */
+.ra-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 0 0 6px;
+  letter-spacing: -0.3px;
+}
+
+/* ── Message ───────────────────────────────────────────────── */
+.ra-message {
+  font-size: 14px;
+  color: #475569;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+/* ── Time chip ─────────────────────────────────────────────── */
+.ra-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f4ff;
+  color: #4a6cf7;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* ── Description ───────────────────────────────────────────── */
+.ra-description {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0 0 16px;
+  font-style: italic;
+}
+
+/* ── Action buttons ────────────────────────────────────────── */
+.ra-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.ra-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.ra-btn:active {
+  transform: scale(0.97) !important;
+}
+
+/* Snooze — amber */
+.ra-btn-snooze {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #000000;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3);
+}
+
+/* Dismiss — blue-purple */
+.ra-btn-dismiss {
+  background: linear-gradient(135deg, #4a6cf7 0%, #6366f1 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(74, 108, 247, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 480px) {
+  .ra-modal {
+    padding: 28px 20px 20px;
+    border-radius: 20px;
+    max-width: 95%;
+  }
+
+  .ra-title {
+    font-size: 18px;
+  }
+
+  .ra-actions {
+    flex-direction: column;
+  }
+
+  .ra-btn {
+    padding: 14px;
+  }
+}
