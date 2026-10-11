@@ -9,7 +9,7 @@ env/
 
 # Environment variables
 .env
-.env.*
+
 
 # Upload folder: keep folder, ignore its contents
 backend/uploads/*
